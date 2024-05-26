@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/opcoes.css' %}">
+    <title>Pizzaria in Deliciis</title>
+</head>
+<body style="background-color: #EDEDED;">
+  <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg" id="nav" style="background-color: #FFBF00">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: white">
+            <img src="{%static 'img/Pizzaria(1).png' %}" alt="" width="120" height="40" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img src="{%static 'img/justify_142317.png' %}" class="img-thumbnail" alt="..."></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto">
+              <form class="d-flex" id="form">
+                <input class="form-control me-2" id="form2" type="search" placeholder="Search" aria-label="Search" style="width: 400px;">
+                <button class="btn btn-outline-success" id="botao" type="submit">Procurar</button>
+              </form>
+            </div>
+            <div id="cart">
+              <a href="#">
+                <button type="button" class="btn btn-primary position-relative" style="background-color: #FFBF00; border: none;">
+                  <i id="car" class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 10px; color: black;"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    2
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </button>
+                
+              </a>
+            </div>
+           
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" id="logo">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-solid fa-user fa-lg" style="color: white; margin-top: 20px;"></i>
+                    </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="color: white">Samuel Araújo</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- MAIN -->
+        <!-- CARROSEL -->
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="margin-top: 10px;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{%static 'img/1.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{%static 'img/Design sem nome.png' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{%static 'img/3.png' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+        <!-- SABORES -->
+          <!-- AQUI QUE FICA O LAÇO DE REPETIÇÃO -->
+        <div class=".container" style="display: grid; gap: 10px;  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+
+          <div class="card" style="width: 18rem; margin-top: 20px; margin-bottom: 20px; margin-left: 20px; background-color: white; border-color: gray; border-width: 1px; border-radius: 5px;">
+            <img src="{%static 'img/istockphoto-1421607041-1024x1024.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body" style="align-items: center; justify-content: center; display: flex; flex-direction: column;">
+              <h5 class="card-title" style="margin-left: 7px; margin-right: 7px;">Quatro queijos</h5>
+              <h6 class="card-text"> <a href="#" class="btn btn-primary" style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
+              <h6 class="card-text"><strong>Valor pequeno: </strong>R$ 12,99 </h6>
+              <h6 class="card-text"><strong>Valor médio: </strong>R$ 22,99 </h6>
+              <h6 class="card-text"><strong>Valor grande: </strong>R$ 32,99 </h6>
+            </div>
+          </div>
+
+        </div>
+       
+
+
+      <!-- FOOTER -->
+      <footer class="bg-dark text-white text-center text-lg-start">
+        <div class="container p-4">
+           
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Sobre nós</h5>
+                    <p>
+                        Estudantes de Análise e Desenvolvimento de Sistemas do Instituto Federal Baiano
+                    </p>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links úteis</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="https://www.linkedin.com/in/rodrigo-costa-411038255/" target="_blank" class="text-white">Linkedin de Rodrigo</a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/samuel-ara%C3%BAjo-silveira-b205711a4/" target="_blank" class="text-white">Linkedin de Samuel</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contato</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <p>
+                              <i class="fas fa-envelope me-3"></i> rodrigo321.costa@gmail.com
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-envelope me-3"></i> samuel.silveira2001@gmail.com
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 Rodrigo Costa Neves e Samuel Araújo Silveira
+        </div>
+    </footer>
+      
+    <script src="https://kit.fontawesome.com/bfe249254a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
