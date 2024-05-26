@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shadows+Into+Light&display=swap');
+
+html, body{
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid{
+    padding: 0;
+    margin: 0;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+#cadastro{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home h1{
+    position: absolute;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 6rem;
+    color: white;
+    z-index: 3;
+    margin-bottom: 2rem;
+}
+.home .img-fluid{
+    position: static;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    filter: brightness(0.5);
+}
+
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    width: 100vw;
+    height: 100%;
+    z-index: 0;
+    background-color: #FFBF00;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.navegar{
+    margin-top: 20rem;
+    position: absolute;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    color: white;
+    z-index: 3;
+}
+
+.navegar a{
+    font-family:"Bebas Neue", sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.navegar a:hover{
+    text-decoration: underline;
+}
+
+span{
+    color: yellow;
+}
+
+.home .rounded{
+    position: absolute;
+    z-index: 3;
+    width: 10%;
+    margin-bottom: 18rem;
+}
+
+.btn{
+    background-color: black;
+    border: black;
+}
+
+.btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px black solid;
+}
+
+form{
+    border-radius:5%;
+    background-color: white;
+    padding: 3%;
+    width: 40%;
+}
+
+.check-css{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-css{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+    .home .rounded{
+        display: none;
+    }
+    .home h1{
+        font-size: 4rem;
+    }
+    .navegar{
+        font-size: 2rem;
+    }
+    form{
+        width: 90%;
+    }
+}

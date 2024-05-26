@@ -1,0 +1,105 @@
+
+#botao{
+    background-color: black; 
+    color: white; 
+    border-color: black
+}
+
+#botao:hover{
+    background-color: white; 
+    color: black; 
+    border-color: black;
+}
+
+html{ height:100%; }
+body { min-height:100%;  margin:0; }
+
+header {
+  height: 50px;
+  background: lightcyan;
+}
+
+main { 
+  height: 1%;
+}
+
+footer {
+  height: 50px;
+  background: PapayaWhip;
+}
+body {
+    display: table;
+    width: 100%; 
+    padding: 0;
+    margin: 0;
+  }
+  
+  body > footer {
+     display: table-row;
+  }
+
+
+#nav{
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+}
+
+@media screen and (max-width: 910px)
+{
+    #logo{
+        display: none
+    }
+    #form{
+        margin-top: 10px;
+        width: 200px;
+    }
+    #cart{
+        margin-top: 20px;
+    }
+   
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.container img{
+    width: 60%;
+    height: 100vh;
+    padding: 2%;
+    border-radius: 2%;
+}
+
+#form-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+    width: 50%;
+}
+
+#input-section{
+    width: 80%;
+}
+
+#form-section h1{
+    padding-bottom: 5%;
+}
+
+@media screen and (max-width:800px){
+    .container img{
+        display: none;
+    }
+    #form-section{
+        width: 100%;
+        padding-left: 0%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}

@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="icon" href="{% static 'img/home/pizza_3595458-removebg-preview.png' %}" type="image/png">
+  <title>Login</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg" id="nav" style="background-color: #FFBF00">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}" style="color: white">
+        <img src="{% static 'img/Pizzaria(1).png' %}" alt="" width="120" height="40"
+          class="d-inline-block align-text-top">
+      </a>
+  </nav>
+
+  {% if messages %}
+    <div class="alert alert-info" role="alert">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if error %}
+    <div class="alert alert-info" role="alert" style="background-color: red; color: white;">
+        {{ error }}
+    </div>
+  {% endif %}
+
+  <div class="container">
+    <img class="img-fluid" src="{% static 'img/login/pizza.jpg' %}" alt="">
+
+    <form id="form-section" method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <h1>Fazer Login</h1>
+      <div data-mdb-input-init class="form-outline mb-4" id="input-section">
+        <input name="username" type="text" id="form2Example1" class="form-control" required />
+        <label class="form-label" for="form2Example1">Username</label>
+      </div>
+
+      <div data-mdb-input-init class="form-outline mb-4" id="input-section">
+        <input name="password" type="password" id="form2Example2" class="form-control" required />
+        <label class="form-label" for="form2Example2">Senha</label>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col">
+          <a href="#!">Esqueceu a senha?</a>
+        </div>
+      </div>
+
+      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4"
+        style="background-color: black;">Entrar</button>
+
+      <div class="text-center">
+        <p>Não tem uma conta ? <a href="{% url 'home' %}#cadastro">Registrar</a></p>
+        <p>Ou nos siga nas redes sociais:</p>
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
+
+        <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-github"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="bg-dark text-white text-center text-lg-start">
+    <div class="container p-4">
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Sobre nós</h5>
+          <p>
+            Estudantes de Análise e Desenvolvimento de Sistemas do Instituto Federal Baiano
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links úteis</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://www.linkedin.com/in/rodrigo-costa-411038255/" target="_blank" class="text-white">Linkedin
+                de Rodrigo</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/samuel-ara%C3%BAjo-silveira-b205711a4/" target="_blank"
+                class="text-white">Linkedin de Samuel</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contato</h5>
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <i class="fas fa-envelope me-3"></i> rodrigo321.costa@gmail.com
+              </p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-envelope me-3"></i> samuel.silveira2001@gmail.com
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Rodrigo Costa Neves e Samuel Araújo Silveira
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/bfe249254a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
