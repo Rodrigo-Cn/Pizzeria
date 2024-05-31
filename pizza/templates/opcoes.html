@@ -83,10 +83,9 @@
             <img src="{{ pizza.imagem.url }}" class="card-img-top" alt="...">
             <div class="card-body" style="align-items: center; justify-content: center; display: flex; flex-direction: column;">
               <h5 class="card-title" style="margin-left: 7px; margin-right: 7px;"> {{pizza.sabor}} </h5>
-              <h6 class="card-text"> <a href="#" class="btn btn-primary" style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
-              <h6 class="card-text"><strong>Valor pequeno: </strong>R$ {{pizza.precoP}} </h6>
-              <h6 class="card-text"><strong>Valor médio: </strong>R$ {{pizza.precoM}} </h6>
-              <h6 class="card-text"><strong>Valor grande: </strong>R$ {{pizza.precoG}} </h6>
+              <h6 class="card-text"><strong>Tamanho: </strong> {{pizza.tamanho}} </h6>
+              <h6 class="card-text"><strong>Valor: </strong>R$ {{pizza.preco}} </h6>
+              <h6 class="card-text"> <a href="/carrinho/adicionar/{{pizza.id}}" class="btn btn-primary" style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
             </div>
           </div>
           {% endfor %}

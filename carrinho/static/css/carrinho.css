@@ -1,0 +1,64 @@
+
+
+#botao{
+    background-color: black; 
+    color: white; 
+    border-color: black
+}
+
+#botao:hover{
+    background-color: white; 
+    color: black; 
+    border-color: black;
+}
+
+html{ height:100%; }
+body { min-height:100%;  margin:0; }
+
+header {
+  height: 50px;
+  background: lightcyan;
+}
+
+main { 
+  height: 1%;
+}
+
+footer {
+  height: 50px;
+  background: PapayaWhip;
+}
+body {
+    display: table;
+    width: 100%; 
+  }
+  
+  body > footer {
+     display: table-row;
+  }
+
+
+#nav{
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
+}
+
+@media screen and (max-width: 910px)
+{
+    #logo{
+        display: none
+    }
+    #form{
+        margin-top: 10px;
+        width: 200px;
+    }
+    #cart{
+        margin-top: 20px;
+    }
+   
+}
+
+.sabor{
+    margin-left: 20px;
+}
