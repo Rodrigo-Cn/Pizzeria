@@ -9,6 +9,7 @@ CustomUser = get_user_model()
 def home(request):
     return render(request, 'home.html')
 
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get("username")
@@ -18,12 +19,13 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return redirect('deliciis')
+            return redirect('/pizza/listasabores/')
         else:
             return render(request, 'login.html', {'error': "Username ou senha incorretos!"})
 
     else:
         return render(request, 'login.html')
+
 
 def cadastrar(request):
     if request.method == 'POST':
@@ -61,8 +63,9 @@ def cadastrar(request):
     else:
         return render(request, 'cadastrar.html')
     
-def deliciis(request):
+""" def deliciis(request):
     if request.user.is_authenticated:
         return HttpResponse("Autenticado com sucesso")
     else:
         return render(request,"login.html",{'error':'Você não está logado.'})
+"""
