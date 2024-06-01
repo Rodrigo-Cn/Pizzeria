@@ -29,7 +29,7 @@
               <button type="button" class="btn btn-primary position-relative" style="background-color: #FFBF00; border: none;">
                 <i id="car" class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 10px; color: black;"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  2
+                  {{carrinho.quantidadeTotal}}
                   <span class="visually-hidden">unread messages</span>
                 </span>
               </button>
@@ -63,13 +63,8 @@
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                       <div class="ms-2 me-auto">
           
-                        <div class="fw-bold">{{ pizza.nome }}</div>
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Escolha o tamanho da pizza!</option>
-                          <option value="1">Pequena</option>
-                          <option value="2">Média</option>
-                          <option value="3">Grande</option>
-                        </select>
+                        <div class="fw-bold">{{ itemDeCarrinho.pizza.sabor }}</div>
+                        <div class="fw">{{ itemDeCarrinho.pizza.tamanho }}</div>
 
                         <select class="form-select" aria-label="Default select example" style="margin-top: 8px;">
                           <option selected>Escolha a quantidade de pizzas!</option>
@@ -85,7 +80,11 @@
                           <option value="10">10</option>
                         </select>
                       </div>
-                      <span class="badge bg-primary">60,99</span>
+                      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center"> 
+                        <span class="badge bg-primary" style="margin-bottom: 15px">60,99</span>
+                        <span class="badge bg-primary">{{itemDeCarrinho.quantidade}}x</span>
+                      </div>
+                      
                     </li>
                     {% endfor %}
 
@@ -95,7 +94,7 @@
                         <div class="fw-bold">Valor total</div>
                           
                       </div>
-                      <span class="badge bg-primary">9823.33</span>
+                      <span class="badge bg-primary">{{carrinho.valorTotal}}</span>
                     </li>
                     
                    

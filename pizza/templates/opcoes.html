@@ -35,12 +35,12 @@
           </form>
         </div>
         <div id="cart">
-          <a href="#">
+          <a href="{% url 'abrirCarrinho' user.id %}">
             <button type="button" class="btn btn-primary position-relative"
               style="background-color: #FFBF00; border: none;">
               <i id="car" class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 10px; color: black;"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                2
+                {{carrinho.quantidadeTotal}}
                 <span class="visually-hidden">unread messages</span>
               </span>
             </button>
@@ -98,8 +98,10 @@
               <h5 class="card-title" style="margin-left: 7px; margin-right: 7px;"> {{pizza.sabor}} </h5>
               <h6 class="card-text"><strong>Tamanho: </strong> {{pizza.tamanho}} </h6>
               <h6 class="card-text"><strong>Valor: </strong>R$ {{pizza.preco}} </h6>
-              <h6 class="card-text"> <a href="/carrinho/adicionar/{{pizza.id}}" class="btn btn-primary"
-                  style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
+
+              <h6 class="card-text"> <a href="{% url 'adicionarNoCarrinho' pizza.id user.id %}" class="btn btn-primary" 
+                style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
+          
             </div>
           </div>
         {% endfor %}
