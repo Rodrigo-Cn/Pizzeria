@@ -63,9 +63,3 @@ def cadastrar(request):
     else:
         return render(request, 'cadastrar.html')
     
-""" def deliciis(request):
-    if request.user.is_authenticated:
-        return HttpResponse("Autenticado com sucesso")
-    else:
-        return render(request,"login.html",{'error':'Você não está logado.'})
-"""
