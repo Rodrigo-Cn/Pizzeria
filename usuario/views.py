@@ -18,8 +18,12 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         
         if user is not None:
-            login(request, user)
-            return redirect('/pizza/listasabores/')
+            if user.is_superuser:
+                login(request, user)
+                return redirect('/pizza/admin/')
+            else:
+                login(request, user)
+                return redirect('/pizza/listasabores/')
         else:
             return render(request, 'login.html', {'error': "Username ou senha incorretos!"})
 
