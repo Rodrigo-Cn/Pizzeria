@@ -21,7 +21,7 @@ class ItemDeCarrinho(models.Model):
         on_delete=models.CASCADE,
         primary_key=True,
     )
-    
+
     carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE)
 
 

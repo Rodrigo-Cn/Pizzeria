@@ -65,24 +65,13 @@
           
                         <div class="fw-bold">{{ itemDeCarrinho.pizza.sabor }}</div>
                         <div class="fw">{{ itemDeCarrinho.pizza.tamanho }}</div>
+                        <a href="{% url 'deletarItemDeCarrinho' itemDeCarrinho.pizza_id user.id %}"><span class="badge"><i class="fa-solid fa-trash fa-2xl" style="color: #ff0000;"></i></span></a>
 
-                        <select class="form-select" aria-label="Default select example" style="margin-top: 8px;">
-                          <option selected>Escolha a quantidade de pizzas!</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                        </select>
+                      
                       </div>
                       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center"> 
-                        <span class="badge bg-primary" style="margin-bottom: 15px">60,99</span>
-                        <span class="badge bg-primary">{{itemDeCarrinho.quantidade}}x</span>
+                        <span class="badge bg-primary" style="margin-bottom: 15px">{{itemDeCarrinho.pizza.preco}}</span>
+                        <span class="badge bg-primary" style="margin-bottom: 15px">{{itemDeCarrinho.quantidade}}x</span>
                       </div>
                       
                     </li>
