@@ -89,7 +89,14 @@
                    
                   </ol>
               </p>
-              <a href="#" class="btn btn-primary">Enviar pedido</a>
+              <form method="post" action="{% url 'pagamento' %}" style="display: flex; flex-direction: row;align-items: center;">
+                {% csrf_token %}
+                    <select name="tipopagamento" id="" style="background-color: rgb(255, 255, 255); border-radius: 8%; height: 38px; margin-right: 4px; cursor: pointer;">
+                      <option value="fisico">Físico</option>
+                      <option value="pix">Pix</option>
+                    </select>
+                    <input class="btn btn-primary" type="submit" value="Realizar Pagamento">
+              </form>
             </div>
           </div>
         

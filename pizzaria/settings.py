@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'pizza',
     'carrinho',
     'pagamento',
-
+    'caixa',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +131,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'usuario.CustomUser'
+
+# settings.py
+
+LOGOUT_REDIRECT_URL = 'login'
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+

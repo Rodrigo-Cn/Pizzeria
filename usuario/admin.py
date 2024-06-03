@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django import forms
 from .models import CustomUser
+from .models import Endereco
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
@@ -41,3 +42,4 @@ class CustomUserAdmin(UserAdmin):
 from django.contrib.auth import get_user_model
 admin.site.unregister(get_user_model())
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Endereco)

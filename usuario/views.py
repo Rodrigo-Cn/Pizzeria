@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.http import HttpResponse
@@ -66,4 +66,7 @@ def cadastrar(request):
             return redirect('login')
     else:
         return render(request, 'cadastrar.html')
-    
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')

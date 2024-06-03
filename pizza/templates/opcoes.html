@@ -29,8 +29,8 @@
         <div class="mx-auto">
           <form class="d-flex" id="form" method="get" action="{% url 'lista' %}">
             {% csrf_token %}
-            <input name="sabor" class="form-control me-2" id="form2" type="search" placeholder="Search" aria-label="Search"
-              style="width: 400px;">
+            <input name="sabor" class="form-control me-2" id="form2" type="search" placeholder="Search"
+              aria-label="Search" style="width: 400px;">
             <button class="btn btn-outline-success" id="botao" type="submit">Procurar</button>
           </form>
         </div>
@@ -62,6 +62,13 @@
       </div>
     </div>
   </nav>
+  {% if messages %}
+  <div class="alert alert-info" role="alert">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+  {% endif %}
   <!-- MAIN -->
   <!-- CARROSEL -->
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="margin-top: 10px;">
@@ -89,46 +96,46 @@
   <!-- AQUI QUE FICA O LAÇO DE REPETIÇÃO -->
   <div class="container"
     style="display: grid; gap: 10px;  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); flex-wrap: wrap;">
-      {% if pizzas %}
-        {% for pizza in pizzas %}
-          <div class="card">
-            <a href="/pizza/detalhes/{{ pizza.id }}/"><img src="{{ pizza.imagem.url }}" class="card-img-top" alt="..."></a>
-            <div class="card-body"
-              style="align-items: center; justify-content: center; display: flex; flex-direction: column;">
-              <h5 class="card-title" style="margin-left: 7px; margin-right: 7px;"> {{pizza.sabor}} </h5>
-              <h6 class="card-text"><strong>Tamanho: </strong> {{pizza.tamanho}} </h6>
-              <h6 class="card-text"><strong>Valor: </strong>R$ {{pizza.preco}} </h6>
+    {% if pizzas %}
+    {% for pizza in pizzas %}
+    <div class="card">
+      <a href="/pizza/detalhes/{{ pizza.id }}/"><img src="{{ pizza.imagem.url }}" class="card-img-top" alt="..."></a>
+      <div class="card-body"
+        style="align-items: center; justify-content: center; display: flex; flex-direction: column;">
+        <h5 class="card-title" style="margin-left: 7px; margin-right: 7px;"> {{pizza.sabor}} </h5>
+        <h6 class="card-text"><strong>Tamanho: </strong> {{pizza.tamanho}} </h6>
+        <h6 class="card-text"><strong>Valor: </strong>R$ {{pizza.preco}} </h6>
 
-              <h6 class="card-text"> <a href="{% url 'adicionarNoCarrinho' pizza.id user.id %}" class="btn btn-primary" 
-                style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
-          
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
+        <h6 class="card-text"> <a href="{% url 'adicionarNoCarrinho' pizza.id user.id %}" class="btn btn-primary"
+            style="background-color: green; border: none;">Adicionar ao carrinho</a> </h6>
+
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
   </div>
 
   {% if not pizzas %}
-    <div id="nosearch">
-      <img src="{% static 'img/opcoes/no-results.png' %}" alt="nosearch.jpg">
-      <h1>Não há pizzas disponíveis.</h1>
-    </div>
+  <div id="nosearch">
+    <img src="{% static 'img/opcoes/no-results.png' %}" alt="nosearch.jpg">
+    <h1>Não há pizzas disponíveis.</h1>
+  </div>
   {% endif %}
 
   {% if pizzas %}
-    <nav aria-label="Page navigation example" id="pagination">
-      <ul class="pagination">
-        {% if pizzas.has_previous %}
-        <li class="page-item"><a class="page-link"
-            href="{% url 'lista' %}?page={{pizzas.previous_page_number}}">Voltar</a></li>
-        {% endif %}
-        <li class="page-item"><a class="page-link" href="#">{{page_num}}</a></li>
-        {% if pizzas.has_next %}
-        <li class="page-item"><a class="page-link" href="{% url 'lista' %}?page={{pizzas.next_page_number}}">Próxima</a>
-        </li>
-        {% endif %}
-      </ul>
-    </nav>
+  <nav aria-label="Page navigation example" id="pagination">
+    <ul class="pagination">
+      {% if pizzas.has_previous %}
+      <li class="page-item"><a class="page-link"
+          href="{% url 'lista' %}?page={{pizzas.previous_page_number}}">Voltar</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="#">{{page_num}}</a></li>
+      {% if pizzas.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'lista' %}?page={{pizzas.next_page_number}}">Próxima</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
   {% endif %}
 
   <!-- FOOTER -->

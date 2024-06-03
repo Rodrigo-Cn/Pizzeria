@@ -13,6 +13,9 @@ class Carrinho(models.Model):
         primary_key=True,
     )
 
+    def __str__(self):
+        return "Carrinho de "+self.usuario.nome
+
 class ItemDeCarrinho(models.Model):
     quantidade = models.IntegerField()
 

@@ -14,6 +14,24 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.nome
+        
+
+class Endereco(models.Model):
+
+    usuario = models.OneToOneField(
+        CustomUser,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+
+    rua = models.CharField(max_length=100)
+    bairro =  models.CharField(max_length=80)
+    numero = models.IntegerField()
+
+    def __str__(self):
+        return f'Endereço de {self.usuario.nome}'
+        
+
     
 
     

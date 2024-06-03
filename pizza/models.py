@@ -6,6 +6,9 @@ class Pizza(models.Model):
     preco = models.FloatField()
     tamanho = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.sabor
+
 
 
 

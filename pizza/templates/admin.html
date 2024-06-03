@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">
-    <title>Pizzaria in Deliciis</title>
+    <title>Área Administrativa</title>
 </head>
+
 <body style="background-color: #EDEDED;">
 
  <!-- HEADER -->
 <nav class="navbar navbar-expand-lg" id="nav" style="background-color: #FFBF00">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: white">
+        <a class="navbar-brand" href="{% url 'admin' %}" style="color: white">
             <img src="{%static 'img/Pizzaria(1).png' %}" alt="" width="120" height="40" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,28 +35,28 @@
       <div class="accordion" id="accordionPanelsStayOpenExample" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              Dados diários
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne" id="titulo-tag">
+              Dados Diários <i style="margin-left: 1%;" class="fa-solid fa-calendar-day"></i>
             </button>
           </h2>
           <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
             <div class="accordion-body" style="display: grid; gap: 10px;  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
                 <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;" >
-                    <h1>2</h1>
+                    <h1>{{ caixa.vendas_diarias }}</h1>
                     <div class="card-body">
                       <h5 class="card-title">Vendas feitas hoje</h5>
                     </div>
                   </div>
 
                   <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1>2</h1>
+                    <h1>{{ caixa.lucro_diario }} R$</h1>
                     <div class="card-body">
                       <h5 class="card-title">Lucro obtido hoje</h5>
                     </div>
                   </div>
 
                   <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1><a href="#" style="color: #1D2F4E"><i class="fa-solid fa-rotate-right"></i></a></h1>
+                    <h1><a href="{% url 'zerarcaixadiario' %}" style="color: #1D2F4E"><i class="fa-solid fa-rotate-right"></i></a></h1>
                     <div class="card-body">
                       <h5 class="card-title">Recomeçar contagem</h5>
                     </div>
@@ -65,28 +66,28 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Dados Gerais
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"  id="titulo-tag">
+              Dados Gerais <i style="margin-left: 1%;" class="fa-regular fa-calendar-days"></i>
             </button>
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
             <div class="accordion-body" style="display: grid; gap: 10px;  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
                 <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1>1233</h1>
+                    <h1>{{ caixa.vendas_totais }}</h1>
                     <div class="card-body">
                       <h5 class="card-title">Vendas feitas desde sempre</h5>
                     </div>
                   </div>
 
                   <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1>2</h1>
+                    <h1>{{ caixa.lucro_total }} R$</h1>
                     <div class="card-body">
                       <h5 class="card-title">Lucro obtido desde sempre</h5>
                     </div>
                   </div>
 
                   <div class="card" style="width: 18rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1>23</h1>
+                    <h1>{{pizzas.count}}</h1>
                     <div class="card-body">
                       <h5 class="card-title">Total de sabores</h5>
                     </div>
@@ -96,15 +97,17 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Funções
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"  id="titulo-tag">
+              Funções <i style="margin-left: 1%;" class="fa-solid fa-gears"></i>
             </button>
           </h2>
 
           <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
             <div class="accordion-body" >
-                <button type="button" class="btn btn-primary btn-lg add-sabor" id="botao2">Criar sabor</button>
-
+                <button type="button" class="btn btn-primary btn-lg add-sabor" id="botao2">Criar sabor  <i class="fa-solid fa-pizza-slice" style="color: #ffffff;"></i></button>
+                <a href="{% url 'listarpedidos' %}" class="btn btn-primary btn-lg add-sabor" id="botao2">Ver Pedidos  <i class="fa-solid fa-arrow-up-wide-short" style="color: #ffffff;"></i></a>
+                <a href="{% url 'listarclientes' %}" class="btn btn-primary btn-lg add-sabor" id="botao2">Ver Clientes  <i class="fa-solid fa-users" style="color: #ffffff;"></i></a>
+                <a href="{% url 'logout' %}" style="background-color: red;" class="btn btn-primary btn-lg add-sabor" id="botao2">Sair  <i class="fa-solid fa-door-open" style="color: #ffffff;"></i></a>
                <form action="{% url 'criarPizza' %}" method="POST" id="criarPizza" enctype="multipart/form-data" style="margin-top: 15px; background-color: #CFE2FF; border-width: 20px; border-color:#CFE2FF; border-style:solid; display: none ">
                 <p style="color: red"> Todos os campos são obrigatórios! </p>
                   {% csrf_token %}

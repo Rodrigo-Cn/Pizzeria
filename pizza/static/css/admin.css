@@ -44,8 +44,16 @@ body {
 box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.47);
 }
 
+#titulo-tag{
+    font-size: 2rem;
+}
+
 @media screen and (max-width: 910px)
 {
+    #titulo-tag{
+        font-size: 1rem;
+    }
+    
     #logo{
         display: none
     }
