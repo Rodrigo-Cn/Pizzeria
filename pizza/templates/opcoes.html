@@ -50,12 +50,12 @@
 
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" id="logo">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'usernavpage' %}">
               <i class="fa-solid fa-user fa-lg" style="color: white; margin-top: 20px;"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" style="color: white">{{user.nome}}</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'usernavpage' %}" style="color: white">{{user.nome}}</a>
           </li>
 
         </ul>

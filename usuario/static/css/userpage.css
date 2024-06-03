@@ -1,0 +1,181 @@
+#botao {
+    background-color: black;
+    color: white;
+    border-color: black
+  }
+  
+  #botao:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
+    min-height: 100%;
+    margin: 0;
+  }
+  
+  header {
+    height: 50px;
+    background: lightcyan;
+  }
+  
+  main {
+    height: 1%;
+  }
+  
+  #pagination {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5%;
+    margin-top: 3%;
+  }
+  
+  .page-link {
+    color: white;
+    background-color: black;
+    box-shadow: 0px 0px 2px 0px black;
+  }
+  
+  .page-link:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(246, 246, 246);
+    border: 2px black solid;
+  }
+  
+  footer {
+    height: 50px;
+    background: PapayaWhip;
+  }
+  
+  body {
+    display: table;
+    width: 100%;
+  }
+  
+  body>footer {
+    display: table-row;
+  }
+  
+  
+  #nav {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.47);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.47);
+  }
+  
+  .card {
+    width: 18rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: white;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 5px;
+  }
+  
+  .card{
+    box-shadow: 0px 0px 10px black;
+  }
+  
+  #nosearch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 50vh;
+  }
+  #nosearch img{
+    width: 10%;
+  }
+  
+  
+  @media screen and (max-width: 910px) {
+    #logo {
+      display: none
+    }
+  
+    #form {
+      margin-top: 10px;
+      width: 200px;
+    }
+  
+    #card {
+      margin-top: 20px;
+    }
+  
+    .card{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90vw;
+    }
+  
+    .container{
+      width: 100vw;
+    }
+  
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+    }
+  
+    .carousel-item{
+      height: 15vh;
+    }
+  
+    .carousel-item img{
+      height: 15vh;
+    }
+  
+    #nosearch img{
+      width: 30%;
+    }
+  }
+  @media screen and (max-width: 910px) {
+    .container {
+        width: 70vw;
+    }
+}
+
+.opcao{
+    background-color: #081E26;
+    color: white;
+    border-color: black
+}
+
+.opcao:hover{
+    background-color: white;
+    color: black;
+    border-color: black
+}
+
+#sair{
+    background-color: red;
+    color: white;
+    border-color: white;
+}
+
+#sair:hover{
+    background-color: white;
+    color: red;
+    border-color: red;
+}
+
+.icone{
+    margin-right: 15px;
+}

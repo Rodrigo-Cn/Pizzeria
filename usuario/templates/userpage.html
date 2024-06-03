@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{%static 'css/userpage.css' %}">
+  <link rel="icon" href="{% static 'img/pizza.png' %}" type="image/png">
+  <title>Meu Perfil</title>
+</head>
+
+<body style="background-color: #EDEDED;">
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg" id="nav" style="background-color: #FFBF00">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'lista' %}" style="color: white">
+        <img src="{%static 'img/Pizzaria(1).png' %}" alt="" width="120" height="40"
+          class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><img src="{%static 'img/justify_142317.png' %}" class="img-thumbnail"
+            alt="..."></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto">
+          <form class="d-flex" id="form" method="get" action="{% url 'lista' %}">
+            {% csrf_token %}
+            <input name="sabor" class="form-control me-2" id="form2" type="search" placeholder="Search"
+              aria-label="Search" style="width: 400px;">
+            <button class="btn btn-outline-success" id="botao" type="submit">Procurar</button>
+          </form>
+        </div>
+        
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" id="logo">
+            <a class="navbar-brand" href="{% url 'usernavpage' %}">
+              <i class="fa-solid fa-user-gear fa-lg" style="color: white; margin-top: 20px;"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: white">{{user.nome}}</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- MAIN -->
+  <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 30px" >
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+        <i class="fa-solid fa-circle-user fa-5x"></i>
+        <p class="fs-1">{{user.nome}}</p>
+    </div>
+
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 50vw ">
+      <a href="" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px; margin-top: 20px"><i class="fa-solid fa-pen icone"></i>Editar dados</button></a>
+      <a href="" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px"><i class="fa-solid fa-street-view icone"></i>Editar endereço</button></a>
+      <a href="{% url 'meuspedidos' %}" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px"><i class="fa-solid fa-pizza-slice icone"></i>Ver pedidos</button></a>
+      <a href="{% url 'logout' %}" ><button type="button" class="btn btn-primary btn-lg opcao" id="sair" style="margin-bottom: 20px"><i class="fa-solid fa-right-from-bracket icone"></i>Sair</button></a>
+    </div>
+
+  </div>
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center text-lg-start">
+    <div class="container p-4">
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Sobre nós</h5>
+          <p>
+            Estudantes de Análise e Desenvolvimento de Sistemas do Instituto Federal Baiano
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links úteis</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="https://www.linkedin.com/in/rodrigo-costa-411038255/" target="_blank" class="text-white">Linkedin
+                de Rodrigo</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/samuel-ara%C3%BAjo-silveira-b205711a4/" target="_blank"
+                class="text-white">Linkedin de Samuel</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Contato</h5>
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <i class="fas fa-envelope me-3"></i> rodrigo321.costa@gmail.com
+              </p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-envelope me-3"></i> samuel.silveira2001@gmail.com
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Rodrigo Costa Neves e Samuel Araújo Silveira
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/bfe249254a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

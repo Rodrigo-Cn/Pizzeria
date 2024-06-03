@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.http import HttpResponse
+from pagamento.models import Pedido
 
 CustomUser = get_user_model()
 
@@ -75,3 +76,20 @@ def cadastrar(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def usernavpage(request):
+    if request.user.is_authenticated:
+        user = request.user
+        return render(request, 'userpage.html', {'user':user})
+    else:
+        return render(request,"login.html",{'error':'Você não está logado.'})
+    
+
+def meuspedidos(request):
+    if request.user.is_authenticated:
+        user = request.user
+        pedidos =  Pedido.objects.filter(usuario=user).order_by('-data_pedido')
+        return render(request, 'meuspedidos.html', {'user':user, 'pedidos':pedidos})
+    else:
+        return render(request,"login.html",{'error':'Você não está logado.'})
+    
