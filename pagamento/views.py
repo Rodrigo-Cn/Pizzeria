@@ -60,6 +60,7 @@ def solicitarpagamento(request):
     
 def fazerpedido(request):
     if request.user.is_authenticated:
+
         user = request.user
         endereco = Endereco.objects.get(usuario_id=user.id)
         carrinho = Carrinho.objects.get(usuario_id=user.id)
@@ -73,7 +74,7 @@ def fazerpedido(request):
             valorTotal=carrinho.valorTotal,
             quantidadeTotal=carrinho.quantidadeTotal
         )
-        print("2OIOIOIOIOI")
+
         for item in itensDeCarrinho:
             Itenspedido.objects.create(
                     pedido=pedido,
@@ -85,19 +86,23 @@ def fazerpedido(request):
         admin = CustomUser.objects.get(pk=1)
         numero_do_dono = admin.telefone
 
+        print(admin.telefone)
+
         for item in itensDeCarrinho:
             lista_itens += f"- Pizza: {item.pizza.sabor}\n"
+            lista_itens += f"- Pizza: {item.pizza.tamanho}\n"
             lista_itens += f"- Quantidade: {item.quantidade}\n"
-            lista_itens += "----------------\n"
+            lista_itens += "--------------------------------\n"
     
         mensagem = (
             f"Olá! Meu nome é {user.nome}. Eu acabei de realizar um pedido em sua loja. "
             f"Os itens que pedi foram estes: \n{lista_itens}"
             f"O valor total do pedido foi: {carrinho.valorTotal}\n"
-            f"Faça a entrega na rua {endereco.rua} do bairro {endereco.bairro}."
+            f"Faça a entrega na Rua: {endereco.rua}, Bairro: {endereco.bairro}, Número: {endereco.numero}."
+            f"Aguardo a confirmação do pedido : )"
         )       
               
-        pywhatkit.sendwhatmsg_instantly(f"+55" + numero_do_dono, mensagem, 60, tab_close=False)
+        pywhatkit.sendwhatmsg_instantly(f"+5577998230506" , mensagem, 10, tab_close=False)
                 
         carrinho.valorTotal = 0
         carrinho.quantidadeTotal = 0

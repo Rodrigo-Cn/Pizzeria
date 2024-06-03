@@ -12,6 +12,7 @@ from .forms import PizzaForm
 from pagamento.models import Pedido
 from usuario.models import CustomUser
 from caixa.models import Caixa
+import pywhatkit
 
 
 def listaSabores(request):
@@ -174,6 +175,16 @@ def pedidosaindo(request, id):
 
     if request.user.is_authenticated and request.user.tipo == "A":
         pedido = get_object_or_404(Pedido, pk=id)
+
+
+        mensagem = (
+            f"Olá! {pedido.usuario.nome}. o seu pedido já foi concluído. "
+            f"Em breve ele chega em sua casa quentinho e saboroso!!!"
+        )       
+              
+        pywhatkit.sendwhatmsg_instantly(f"+55" + pedido.usuario.telefone , mensagem, 10, tab_close=False)
+
+
         pedido.status = "Concluido"
         caixa = get_object_or_404(Caixa, pk=1)
         caixa.lucro_total += pedido.valorTotal
