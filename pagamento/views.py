@@ -108,26 +108,28 @@ def payment_pix(request):
 
     sdk = mercadopago.SDK(token)
 
+    request_options = mercadopago.config.RequestOptions()
+    request_options.custom_headers = {
+        'x-idempotency-key': 'TEST-868239159716244-060111-8c1b99ebdf4c0b4ca737df3337a28b3b-445985305'
+    }
+
     payment_data = {
         "transaction_amount": 20,
         "description": "Pizzaria Deliciis",
         "payment_method_id": "pix",
         "payer": {
             "email": user.email,
-            "first_name": user.nome,
-            "last_name": "Nulo",
-            "identification": {
-                "type": user.cpf,
-                "number": user.telefone
-            }
         }
     }
 
-    payment = sdk.payment().create(payment_data)
-    payment_response = payment["response"]
+
+    payment_response = sdk.payment().create(payment_data, request_options)
+    payment = payment_response["response"]
+
+    print(payment)
 
     return render(request, 'pagamento.html', {
-        'qr_code_url': payment_response['point_of_interaction']['transaction_data']['qr_code_base64']
+        'qr_code_url': payment['point_of_interaction']['transaction_data']['qr_code_base64']
     })
 
 
