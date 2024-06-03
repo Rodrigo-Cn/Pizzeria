@@ -2,17 +2,25 @@ from django.shortcuts import render, redirect
 from carrinho.models import Carrinho
 from usuario.models import Endereco
 from django.contrib import messages
-from .models import Pedido
+from .models import Pedido, CustomUser
 from .models import Itenspedido
 from carrinho.models import ItemDeCarrinho
 import mercadopago
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import pywhatkit
 
 def solicitarpagamento(request):
+    print("=====================")
+    print("oioioioioi")
+    print("=======================")
     if request.user.is_authenticated:
         tipopagamento = request.POST.get("tipopagamento")
-        
+        print("=====================")
+        print("oioioioioi")
+        print("=======================")
+        enviar_mensagem(request)
+
         if tipopagamento == 'fisico':
 
             if request.user.is_authenticated:
@@ -30,8 +38,40 @@ def solicitarpagamento(request):
 
             else:
                 return render(request,"login.html",{'error':'Você não está logado.'})
+            
+def enviar_mensagem(request):
+    print("=====================")
+    print("olaolaolaola")
+    print("=======================")
+    admin = CustomUser.objects.get(pk=1)
+    numero_do_dono = admin.telefone
+    user = request.user 
+    endereco = Endereco.objects.get(usuario_id=user.id)
+    carrinho = Carrinho.objects.get(usuario_id=user.id)
+    itens = Itenspedido.objects.filter(carrinho_id=user.id)
+
+    lista_itens = ""
+
+    for item in itens:
+        lista_itens += f"- Pizza: {item.pizza.sabor}\n"
+        lista_itens += f"- Quantidade: {item.quantidade}\n"
+        lista_itens += "----------------\n"
+    
+    mensagem = (
+            f"Olá! Meu nome é {user.nome}. Eu acabei de realizar um pedido em sua loja. "
+            f"Os itens que pedi foram estes: \n{lista_itens}"
+            f"O valor total do pedido foi: {carrinho.valorTotal}\n"
+            f"Faça a entrega na rua {endereco.rua} do bairro {endereco.bairro}."
+        )       
+              
+    pywhatkit.sendwhatmsg_instantly(f"+55" + numero_do_dono, mensagem, 60, tab_close=False)
+
+    return True
     
 def fazerpedido(request):
+    print("=====================")
+    print("oioioioioi")
+    print("=======================")
 
     if request.user.is_authenticated:
         user = request.user
