@@ -32,7 +32,7 @@ def solicitarpagamento(request):
             else:
                 return render(request,"login.html",{'error':'Você não está logado.'})
             
-def enviar_mensagem(request):
+"""def enviar_mensagem(request):
     admin = CustomUser.objects.get(pk=1)
     numero_do_dono = admin.telefone
     user = request.user 
@@ -56,7 +56,7 @@ def enviar_mensagem(request):
               
     pywhatkit.sendwhatmsg_instantly(f"+55" + numero_do_dono, mensagem, 60, tab_close=False)
 
-    return True
+    return True """
     
 def fazerpedido(request):
     if request.user.is_authenticated:
@@ -73,14 +73,31 @@ def fazerpedido(request):
             valorTotal=carrinho.valorTotal,
             quantidadeTotal=carrinho.quantidadeTotal
         )
-
+        print("2OIOIOIOIOI")
         for item in itensDeCarrinho:
             Itenspedido.objects.create(
                     pedido=pedido,
                     pizza=item.pizza,
                     quantidade=item.quantidade
                 )
-        enviar_mensagem(request)
+        
+        lista_itens = ""
+        admin = CustomUser.objects.get(pk=1)
+        numero_do_dono = admin.telefone
+
+        for item in itensDeCarrinho:
+            lista_itens += f"- Pizza: {item.pizza.sabor}\n"
+            lista_itens += f"- Quantidade: {item.quantidade}\n"
+            lista_itens += "----------------\n"
+    
+        mensagem = (
+            f"Olá! Meu nome é {user.nome}. Eu acabei de realizar um pedido em sua loja. "
+            f"Os itens que pedi foram estes: \n{lista_itens}"
+            f"O valor total do pedido foi: {carrinho.valorTotal}\n"
+            f"Faça a entrega na rua {endereco.rua} do bairro {endereco.bairro}."
+        )       
+              
+        pywhatkit.sendwhatmsg_instantly(f"+55" + numero_do_dono, mensagem, 60, tab_close=False)
                 
         carrinho.valorTotal = 0
         carrinho.quantidadeTotal = 0
