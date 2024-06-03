@@ -6,7 +6,6 @@ from .models import Carrinho, Pizza, ItemDeCarrinho
 from usuario.models import CustomUser
 
 def adicionarNoCarrinho(request, pizza_id, user_id):
-    print("oioioioioioioioioinasdasdasd")
     itemNovo = ItemDeCarrinho()
     carrinho = Carrinho.objects.get(pk=user_id)
     itemNovo.pizza = Pizza.objects.get(pk=pizza_id)

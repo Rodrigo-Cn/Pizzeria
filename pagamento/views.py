@@ -11,15 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 import pywhatkit
 
 def solicitarpagamento(request):
-    print("=====================")
-    print("oioioioioi")
-    print("=======================")
     if request.user.is_authenticated:
         tipopagamento = request.POST.get("tipopagamento")
-        print("=====================")
-        print("oioioioioi")
-        print("=======================")
-        enviar_mensagem(request)
 
         if tipopagamento == 'fisico':
 
@@ -40,9 +33,6 @@ def solicitarpagamento(request):
                 return render(request,"login.html",{'error':'Você não está logado.'})
             
 def enviar_mensagem(request):
-    print("=====================")
-    print("olaolaolaola")
-    print("=======================")
     admin = CustomUser.objects.get(pk=1)
     numero_do_dono = admin.telefone
     user = request.user 
@@ -69,16 +59,12 @@ def enviar_mensagem(request):
     return True
     
 def fazerpedido(request):
-    print("=====================")
-    print("oioioioioi")
-    print("=======================")
-
     if request.user.is_authenticated:
         user = request.user
         endereco = Endereco.objects.get(usuario_id=user.id)
         carrinho = Carrinho.objects.get(usuario_id=user.id)
         itensDeCarrinho = ItemDeCarrinho.objects.filter(carrinho_id=user.id)
-
+        
         pedido = Pedido.objects.create(
             usuario=user,
             endereco=endereco,
@@ -93,8 +79,9 @@ def fazerpedido(request):
                     pedido=pedido,
                     pizza=item.pizza,
                     quantidade=item.quantidade
-                )   
-            
+                )
+        enviar_mensagem(request)
+                
         carrinho.valorTotal = 0
         carrinho.quantidadeTotal = 0
         carrinho.save()
