@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'img/pizza.png' %}" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{%static 'css/carrinho.css' %}">
-    <title>Pizzaria in Deliciis</title>
+    <title>Carrinho</title>
 </head>
 <body style="background-color: #EDEDED;">
   <!-- HEADER -->
     <nav class="navbar navbar-expand-lg" id="nav" style="background-color: #FFBF00">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#" style="color: white">
+          <a class="navbar-brand" href="{% url 'lista' %}" style="color: white">
             <img src="{%static 'img/Pizzaria(1).png' %}" alt="" width="120" height="40" class="d-inline-block align-text-top">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
