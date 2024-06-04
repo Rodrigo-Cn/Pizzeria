@@ -127,3 +127,44 @@ def editarEndereco(request):
                     return render(request, 'userpage.html', {'user':user})
     else:
         return render(request,"login.html",{'error':'Você não está logado.'})
+
+def editarperfil(request):
+        
+        if request.user.is_authenticated:
+            user = request.user
+            if request.method == 'POST':
+                username = request.POST.get('username')
+                nome = request.POST.get('nome')
+                email = request.POST.get('email')
+                senha = request.POST.get('senha1')
+                cpf = request.POST.get('cpf')
+                telefone = request.POST.get('telefone')
+                
+                if CustomUser.objects.filter(username=username).exclude(id=user.id).exists():
+                    erro = "Username já existe"
+                    return render(request, 'editarperfil.html', {'erro': erro})
+                elif CustomUser.objects.filter(email=email).exclude(id=user.id).exists():
+                    erro = "Email já foi cadastrado"
+                    return render(request, 'editarperfil.html', {'erro': erro})
+                elif CustomUser.objects.filter(cpf=cpf).exclude(id=user.id).exists():
+                    erro = "CPF já foi cadastrado"
+                    return render(request, 'editarperfil.html', {'erro': erro})
+                elif CustomUser.objects.filter(telefone=telefone).exclude(id=user.id).exists():
+                    erro = "Telefone já foi cadastrado"
+                    return render(request, 'editarperfil.html', {'erro': erro})
+                else:
+                    user.username = username
+                    user.nome = nome
+                    user.email = email
+                    user.cpf = cpf
+                    user.telefone = telefone
+                    if senha:
+                        user.set_password(senha)
+                    user.save()
+                    messages.success(request, 'Usuário editado com sucesso, faça o login para confirmar alterações.')
+                return redirect('login')
+            else:
+                return render(request, 'editarperfil.html', {'user': user})
+
+        else:
+            return render(request, 'cadastrar.html')

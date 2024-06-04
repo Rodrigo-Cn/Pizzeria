@@ -11,4 +11,5 @@ urlpatterns = [
     path('meuspedidos/', views.meuspedidos, name='meuspedidos'),
     path('endereco/', views.endereco, name='endereco'),
     path('editarEndereco/', views.editarEndereco, name='editarEndereco'),
+    path('editarperfil/', views.editarperfil, name='editarperfil'),
 ]

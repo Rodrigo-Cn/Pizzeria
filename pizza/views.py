@@ -255,3 +255,4 @@ def zerarcaixadiario(request):
     
     else:
         return render(request,"login.html",{'error':'Você não está logado ou não tem permissão de administrador.'})
+        
