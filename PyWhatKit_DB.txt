@@ -43,3 +43,23 @@ Time: 17:9
 Phone Number: +5577999062662
 Message: Olá! Rodrigo Costa. o seu pedido já foi concluído. Em breve ele chega em sua casa quentinho e saboroso!!!
 --------------------
+Date: 3/6/2024
+Time: 21:0
+Phone Number: +5577998230506
+Message: Olá! Meu nome é Rodrigo Costa. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Quatro-Queijos- Pizza: Grande- Quantidade: 1--------------------------------O valor total do pedido foi: 35.0Faça a entrega na Rua: Arnaldo da amelinda, Bairro: oioioi, Número: 234.Aguardo a confirmação do pedido : )
+--------------------
+Date: 3/6/2024
+Time: 21:2
+Phone Number: +5577998230506
+Message: Olá! Meu nome é Rodrigo Costa. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Quatro-Queijos- Pizza: Grande- Quantidade: 1--------------------------------O valor total do pedido foi: 35.0Faça a entrega na Rua: Arnaldo da amelinda, Bairro: oioioi, Número: 234.Aguardo a confirmação do pedido : )
+--------------------
+Date: 3/6/2024
+Time: 21:27
+Phone Number: +5577998230506
+Message: Olá! Meu nome é Samuel. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Quatro-Queijos- Pizza: Grande- Quantidade: 1--------------------------------O valor total do pedido foi: 35.0Faça a entrega na Rua: 23, Bairro: 234, Número: 12.Aguardo a confirmação do pedido : )
+--------------------
+Date: 3/6/2024
+Time: 21:33
+Phone Number: +5577998230506
+Message: Olá! Meu nome é Samuel. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Peixe- Pizza: Grande- Quantidade: 1--------------------------------O valor total do pedido foi: 45.0Faça a entrega na Rua: Arnaldo da amelinda, Bairro: Paraíso, Número: 123.Aguardo a confirmação do pedido : )
+--------------------

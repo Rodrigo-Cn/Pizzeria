@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import pywhatkit
 import uuid
+from usuario.forms import EnderecoForm
 
 def solicitarpagamento(request):
     if request.user.is_authenticated:
@@ -20,10 +21,16 @@ def solicitarpagamento(request):
             if request.user.is_authenticated:
                 
                 user = request.user
-                endereco = Endereco.objects.get(usuario_id=user.id)
-                carrinho = Carrinho.objects.get(usuario_id=user.id)
-                context =  {'user': user, 'carrinho' : carrinho, 'carrinho' : carrinho, 'endereco' : endereco, 'tipopagamento' : "Físico"}
-                return render(request, "finalizarpedido.html", context)
+                
+                if Endereco.objects.filter(usuario_id=user.id):
+                    endereco = Endereco.objects.get(usuario_id=user.id)
+                    carrinho = Carrinho.objects.get(usuario_id=user.id)
+                    context =  {'user': user, 'carrinho' : carrinho, 'carrinho' : carrinho, 'endereco' : endereco, 'tipopagamento' : "Físico"}
+                    return render(request, "finalizarpedido.html", context)
+                else:
+                    form = EnderecoForm()
+                    msg = "Por favor, insira seu endereço antes de confirmar seu pedido! Depois de inserir, retorne para a tela do carrinho."
+                    return render(request, "editarEndereco.html", {'user':user, 'form':form, 'msg':msg})
             else:
                 return render(request,"login.html",{'error':'Você não está logado.'})
         else:

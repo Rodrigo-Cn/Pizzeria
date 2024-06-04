@@ -58,7 +58,7 @@
 
     <div class="container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 50vw ">
       <a href="" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px; margin-top: 20px"><i class="fa-solid fa-pen icone"></i>Editar dados</button></a>
-      <a href="" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px"><i class="fa-solid fa-street-view icone"></i>Editar endereço</button></a>
+      <a href="{% url 'endereco' %}" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px"><i class="fa-solid fa-street-view icone"></i>Editar endereço</button></a>
       <a href="{% url 'meuspedidos' %}" ><button type="button" class="btn btn-primary btn-lg opcao" style="margin-bottom: 20px"><i class="fa-solid fa-pizza-slice icone"></i>Ver pedidos</button></a>
       <a href="{% url 'logout' %}" ><button type="button" class="btn btn-primary btn-lg opcao" id="sair" style="margin-bottom: 20px"><i class="fa-solid fa-right-from-bracket icone"></i>Sair</button></a>
     </div>
