@@ -4,6 +4,8 @@ from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.http import HttpResponse
 from pagamento.models import Pedido
+from .forms import EnderecoForm, UserForm
+from .models import Endereco
 
 CustomUser = get_user_model()
 
@@ -92,4 +94,36 @@ def meuspedidos(request):
         return render(request, 'meuspedidos.html', {'user':user, 'pedidos':pedidos})
     else:
         return render(request,"login.html",{'error':'Você não está logado.'})
+
+def endereco(request):
+    if request.user.is_authenticated:
+        user = request.user
+        if Endereco.objects.filter(usuario_id=user.id):
+            endereco = Endereco.objects.get(usuario_id=user.id)
+            form = EnderecoForm(instance=endereco)
+        
+        return render(request, 'editarEndereco.html', {'user':user, 'form':form})
+    else:
+        return render(request,"login.html",{'error':'Você não está logado.'})
     
+def editarEndereco(request):
+    if request.user.is_authenticated:
+        user = request.user
+
+        if Endereco.objects.filter(usuario_id=user.id):
+            endereco = Endereco.objects.get(usuario_id=user.id)
+            if request.method == 'POST':
+                form = EnderecoForm(request.POST, instance=endereco)
+                if form.is_valid():
+                    form.save()
+                    return render(request, 'userpage.html', {'user':user})
+        else:
+            if request.method == 'POST':
+                endereco = Endereco()
+                endereco.usuario = user
+                form = EnderecoForm(request.POST, instance=endereco)
+                if form.is_valid():
+                    form.save()
+                    return render(request, 'userpage.html', {'user':user})
+    else:
+        return render(request,"login.html",{'error':'Você não está logado.'})
