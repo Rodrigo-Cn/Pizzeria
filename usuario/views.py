@@ -101,8 +101,10 @@ def endereco(request):
         if Endereco.objects.filter(usuario_id=user.id):
             endereco = Endereco.objects.get(usuario_id=user.id)
             form = EnderecoForm(instance=endereco)
-        
-        return render(request, 'editarEndereco.html', {'user':user, 'form':form})
+            return render(request, 'editarEndereco.html', {'user':user, 'form':form})
+        else:
+            form = EnderecoForm()
+            return render(request, 'editarEndereco.html', {'user':user, 'form':form})
     else:
         return render(request,"login.html",{'error':'Você não está logado.'})
     
