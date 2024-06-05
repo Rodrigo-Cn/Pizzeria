@@ -63,3 +63,23 @@ Time: 21:33
 Phone Number: +5577998230506
 Message: Olá! Meu nome é Samuel. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Peixe- Pizza: Grande- Quantidade: 1--------------------------------O valor total do pedido foi: 45.0Faça a entrega na Rua: Arnaldo da amelinda, Bairro: Paraíso, Número: 123.Aguardo a confirmação do pedido : )
 --------------------
+Date: 3/6/2024
+Time: 23:52
+Phone Number: +5577998230506
+Message: Olá! Meu nome é Cleber. Eu acabei de realizar um pedido em sua loja. Os itens que pedi foram estes: - Pizza: Peixe- Pizza: Grande- Quantidade: 1--------------------------------- Pizza: Doce- Pizza: Pequena- Quantidade: 2--------------------------------O valor total do pedido foi: 91.0Faça a entrega na Rua: Lima barreto, Bairro: Paraíso, Número: 838.Aguardo a confirmação do pedido : )
+--------------------
+Date: 3/6/2024
+Time: 23:56
+Phone Number: +5577998235658
+Message: Olá! Cleber. o seu pedido já foi concluído. Em breve ele chega em sua casa quentinho e saboroso!!!
+--------------------
+Date: 3/6/2024
+Time: 23:58
+Phone Number: +5577999062662
+Message: Olá! Rodrigo Costa. o seu pedido já foi concluído. Em breve ele chega em sua casa quentinho e saboroso!!!
+--------------------
+Date: 3/6/2024
+Time: 23:58
+Phone Number: +5577999062662
+Message: Olá! Rodrigo Costa. o seu pedido já foi concluído. Em breve ele chega em sua casa quentinho e saboroso!!!
+--------------------
