@@ -146,7 +146,7 @@ def payment_pix(request):
         endereco = Endereco.objects.get(usuario_id=user.id)
         carrinho = Carrinho.objects.get(usuario_id=user.id)
 
-        token = "TEST-868239159716244-060111-8c1b99ebdf4c0b4ca737df3337a28b3b-445985305"
+        token = "Seu Token"
         sdk = mercadopago.SDK(token)
 
         idempotency_key = str(uuid.uuid4())
@@ -192,7 +192,7 @@ def payment_pix(request):
 @csrf_exempt
 def payment_webhook(request):
     if request.method == 'POST':
-        token = "TEST-868239159716244-060111-8c1b99ebdf4c0b4ca737df3337a28b3b-445985305"
+        token = "Seu Token"
         event = request.json
         if event["type"] == "payment":
             payment_id = event["data"]["id"]
